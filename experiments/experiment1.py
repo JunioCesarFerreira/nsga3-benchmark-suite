@@ -14,8 +14,8 @@ from utils.generate_points import generate_reference_points
 # Parameters
 NUM_OBJ = 6
 NUM_VAR = 14
-NUM_GEN = 20
-POP_SIZE = 60
+NUM_GEN = 50
+POP_SIZE = 100
 DIVISIONS = 10
 BOUNDS = [(0.0, 1.0)] * NUM_VAR # bounds to dtlz2
 R = 0.15 # ~(pi/2)/DIVISIONS 
