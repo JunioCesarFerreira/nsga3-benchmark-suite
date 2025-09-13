@@ -15,8 +15,8 @@ from analysis.hypervolume import hypervolume
 from utils.generate_points import generate_reference_points
 
 # Parameters
-NUM_OBJ = 2
-NUM_VAR = 1
+NUM_OBJ = 3
+NUM_VAR = 2
 NUM_GEN = 16
 POP_SIZE = 100
 DIVISIONS = 10
@@ -24,7 +24,7 @@ BOUNDS = [(0.0, 1.0)] * NUM_VAR # bounds to dtlz2
 R = 0.15 # ~(pi/2)/DIVISIONS 
 
 # Pasta de saída para resultados
-output_dir = Path("results/experiment1")
+output_dir = Path("results/experiment2")
 output_dir.mkdir(parents=True, exist_ok=True)
  
 # Pontos de referência précalculados para uso nas comparações   
