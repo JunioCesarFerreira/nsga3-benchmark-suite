@@ -49,6 +49,11 @@ for i in range(100):
 
     ptin, ptout = count_points_around_refs_dtlz2(pareto_front, ref_pts, R)
 
+    print(f'elapsed_time: {elapsed_time}')
+    print(f'hypervolume: {hv}')
+    print(f'points_in_r: {ptin}')
+    print(f'points_out_r: {ptout}')
+    
     # Criar dicionário com resultados
     result = {
         "iteration": i,
