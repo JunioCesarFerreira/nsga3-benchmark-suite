@@ -8,9 +8,8 @@ from genetic_operators.mutation import polynomial_mutation
 from algorithms.pure_nsga3 import nsga3_func
 from algorithms.deap_nsga3 import nsga3_deap_func
 from algorithms.pymoo_nsga3 import nsga3_pymoo_func
-from algorithms.pygmo_nsga3 import nsga3_pygmo_func
 from problems.dtlz2 import dtlz2
-from analysis.distance import count_points_around_refs_dtlz2
+from analysis.coverege_per_niche import count_points_per_niche_dtlz2, analyze_niche_distribution
 from analysis.hypervolume import hypervolume
 from utils.generate_points import generate_reference_points
 
@@ -33,8 +32,7 @@ ref_pts = generate_reference_points(NUM_OBJ, DIVISIONS)
 impl: list[NSGA3Callable] = [
     nsga3_func,
     nsga3_deap_func,
-    nsga3_pymoo_func,
-    nsga3_pygmo_func
+    nsga3_pymoo_func
 ]
 
 # Loop de execuções
@@ -56,20 +54,24 @@ for func in impl:
     
     hv = hypervolume(pareto_front, [1.1]*NUM_OBJ)
 
-    ptin, ptout = count_points_around_refs_dtlz2(pareto_front, ref_pts, R)
-
-    print(f'\telapsed_time: {elapsed_time}')
-    print(f'\thypervolume: {hv}')
-    print(f'\tpoints_in_r: {ptin}')
-    print(f'\tpoints_out_r: {ptout}')
+    ptin, ptout = count_points_per_niche_dtlz2(pareto_front, ref_pts, R)
     
-    # Criar dicionário com resultados
-    result = {
+    print_data = {
         "implementation": func.__name__,
         "elapsed_time": elapsed_time,
         "hypervolume": hv,
-        "points_in_r": ptin,
         "points_out_r": ptout,
+        "analyze_niche": analyze_niche_distribution(ptin, ptout),
+    }
+    print(json.dumps(print_data, indent=2))
+    
+    data = {
+        "implementation": func.__name__,
+        "elapsed_time": elapsed_time,
+        "hypervolume": hv,
+        "points_per_niche": [float(v) for v in ptin],
+        "points_out_r": ptout,
+        "analyze_niche": analyze_niche_distribution(ptin, ptout),
         "pareto_front": [list(map(float, sol)) for sol in pareto_front],
     }
 
@@ -77,6 +79,6 @@ for func in impl:
 
     # Salvar JSON
     with open(file_path, "w") as f:
-        json.dump(result, f, indent=2)
+        json.dump(data, f, indent=2)
 
     print(f"[{func.__name__}] Saved {file_path} (time={elapsed_time:.3f}s)")

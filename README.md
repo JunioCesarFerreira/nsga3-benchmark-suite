@@ -11,26 +11,60 @@ DIVISIONS = 10
 BOUNDS = [(0.0, 1.0)] * NUM_VAR # bounds to dtlz2
 R = 0.15 # ~(pi/2)/DIVISIONS 
 ```
+in my localhost:
 ```
 === Summary of Results ===
 
 Implementation: nsga3_func
-  mean_elapsed_time: 0.596620
-  mean_hypervolume: 0.413657
-  mean_points_in_r: 100.000000
-  mean_points_out_r: 0.000000
+  mean_elapsed_time: 3.329954
+  mean_hv_elapsed_time: 0.000752
+  mean_count_elapsed_time: 0.002248
+  mean_analyze_elapsed_time: 0.000361
+  mean_hypervolume: 0.413788
+  coverage: 1.000000
+  empty_ratio: 0.000000
+  outside_rate: 0.000000
+  entropy_norm: 0.914359
+  gini: 3.857400
+  chi2: 40.078400
+  avg_active: 9.090909
+  max_density: 19.980000
+  std_density: 5.755045
+  CUS: -2.857400
 
 Implementation: nsga3_deap_func
-  mean_elapsed_time: 0.049809
-  mean_hypervolume: 0.416823
-  mean_points_in_r: 99.010000
-  mean_points_out_r: 0.000000
+  mean_elapsed_time: 0.215610
+  mean_hv_elapsed_time: 0.000763
+  mean_count_elapsed_time: 0.002070
+  mean_analyze_elapsed_time: 0.000345
+  mean_hypervolume: 0.416761
+  coverage: 1.000000
+  empty_ratio: 0.000000
+  outside_rate: 0.000000
+  entropy_norm: 0.934055
+  gini: 3.382800
+  chi2: 31.931800
+  avg_active: 9.000909
+  max_density: 17.020000
+  std_density: 5.110473
+  CUS: -2.382800
 
 Implementation: nsga3_pymoo_func
-  mean_elapsed_time: 0.106488
+  mean_elapsed_time: 0.447453
+  mean_hv_elapsed_time: 0.000380
+  mean_count_elapsed_time: 0.000315
+  mean_analyze_elapsed_time: 0.000258
   mean_hypervolume: 0.388372
-  mean_points_in_r: 11.000000
-  mean_points_out_r: 0.000000`
+  coverage: 1.000000
+  empty_ratio: 0.000000
+  outside_rate: 0.000000
+  entropy_norm: 1.000000
+  gini: 0.000000
+  chi2: 0.000000
+  avg_active: 1.000000
+  max_density: 1.000000
+  std_density: 0.000000
+  CUS: 1.000000
 ```
 
 ## Experiment 2
