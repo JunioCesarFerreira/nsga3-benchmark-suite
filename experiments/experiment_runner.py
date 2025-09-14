@@ -124,10 +124,21 @@ def run_experiemnt_with_dtlz2(
             print(f"[{func.__name__}] Saved {file_path} (time={elapsed_time:.3f}s)")
 
     # --- Cálculo das médias finais ---
-    summary = {}
+    summary = {
+        "parameters": {
+            "pop_size": pop_size,
+            "num_gen": num_gen,
+            "bounds": bounds,
+            "num_obj": num_obj,
+            "divisions": divisions,
+            "radius_ref": radius_ref,
+            "num_loops": num_loops,
+        },
+        "results": {}
+    }
     for func in implementations:
         name = func.__name__
-        summary[name] = {
+        summary["results"][name] = {
             "mean_elapsed_time": float(np.mean(stats[name]["elapsed_time"])),
             "mean_hv_elapsed_time": float(np.mean(stats[name]["hv_elapsed_time"])),
             "mean_count_elapsed_time": float(np.mean(stats[name]["count_elapsed_time"])),
@@ -146,7 +157,7 @@ def run_experiemnt_with_dtlz2(
         }
 
     print("\n=== Summary of Results ===")
-    for name, values in summary.items():
+    for name, values in summary["results"].items():
         print(f"\nImplementation: {name}")
         for k, v in values.items():
             print(f"  {k}: {v:.6f}")
