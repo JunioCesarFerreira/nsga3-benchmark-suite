@@ -1,7 +1,6 @@
 import json
 import time
 from pathlib import Path
-import numpy as np
 
 from algorithms.protocol_nsga3 import NSGA3Callable
 from genetic_operators.crossover import sbx_crossover
@@ -9,6 +8,7 @@ from genetic_operators.mutation import polynomial_mutation
 from algorithms.pure_nsga3 import nsga3_func
 from algorithms.deap_nsga3 import nsga3_deap_func
 from algorithms.pymoo_nsga3 import nsga3_pymoo_func
+from algorithms.pygmo_nsga3 import nsga3_pygmo_func
 from problems.dtlz2 import dtlz2
 from analysis.distance import count_points_around_refs_dtlz2
 from analysis.hypervolume import hypervolume
@@ -33,7 +33,8 @@ ref_pts = generate_reference_points(NUM_OBJ, DIVISIONS)
 impl: list[NSGA3Callable] = [
     nsga3_func,
     nsga3_deap_func,
-    nsga3_pymoo_func
+    nsga3_pymoo_func,
+    nsga3_pygmo_func
 ]
 
 # Loop de execuções
