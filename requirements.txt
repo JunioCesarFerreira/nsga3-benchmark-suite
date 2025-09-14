@@ -1,4 +1,5 @@
-numpy>=1.24
-deap>=1.4.1
-pymoo>=0.6.0
-matplotlib>=3.8
+numpy
+deap
+pymoo
+matplotlib
+pygmo
