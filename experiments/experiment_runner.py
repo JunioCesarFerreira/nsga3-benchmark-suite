@@ -6,9 +6,10 @@ import numpy as np
 from algorithms.protocol_nsga3 import Bounds, NSGA3Callable
 from genetic_operators.crossover import sbx_crossover
 from genetic_operators.mutation import polynomial_mutation
-from problems.dtlz2 import dtlz2
+from problems.dtlz2 import dtlz2, dtlz2_true_front
 from analysis.coverege_per_niche import count_points_per_niche_dtlz2, analyze_niche_distribution
 from analysis.hypervolume import hypervolume
+from analysis.generational_distance import gd, igd
 from utils.generate_points import generate_reference_points
 
 def run_experiemnt_with_dtlz2(
@@ -26,12 +27,16 @@ def run_experiemnt_with_dtlz2(
     # Pontos de referência précalculados para uso nas comparações   
     ref_pts = generate_reference_points(num_obj, divisions)
     
+    true_front = dtlz2_true_front(600, num_obj)
+    
     stats = {
         func.__name__: {
             "elapsed_time": [], 
             "hv_elapsed_time": [], 
             "count_elapsed_time": [], 
             "analyze_elapsed_time": [], 
+            "gd_elapsed_time": [], 
+            "igd_elapsed_time": [], 
             "hypervolume": [],
             "coverage": [],
             "empty_ratio": [],
@@ -42,7 +47,9 @@ def run_experiemnt_with_dtlz2(
             "avg_active": [],
             "max_density": [],
             "std_density": [],
-            "CUS": []
+            "CUS": [],
+            "gd": [],
+            "igd": []
             } for func in implementations}
 
     for exp_index in range(num_loops):
@@ -76,15 +83,27 @@ def run_experiemnt_with_dtlz2(
             niche_metrics = analyze_niche_distribution(ptin, ptout)   
             analyze_elapsed_time = time.time() - start_time # ELAPSED
             
+            start_time = time.time() # START TIME     
+            gdv = gd(pareto_front, true_front)
+            gd_elapsed_time = time.time() - start_time # ELAPSED
+            
+            start_time = time.time() # START TIME     
+            igdv = igd(pareto_front, true_front)
+            igd_elapsed_time = time.time() - start_time # ELAPSED
+            
             print_data = {
                 "implementation": func.__name__,
                 "elapsed_time": elapsed_time,
                 "hv_elapsed_time": hv_elapsed_time,
                 "count_elapsed_time": counter_elapsed_time,
                 "analyze_elapsed_time": analyze_elapsed_time,
+                "gd_elapsed_time": gd_elapsed_time,
+                "igd_elapsed_time": igd_elapsed_time,
                 "worst_point": worst_pt.tolist(),
                 "delta": delta,
                 "hypervolume": hv,
+                "gd": gdv,
+                "igd": igdv,
                 "points_out_r": ptout,
                 "niche_metrics": niche_metrics,
             }
@@ -95,7 +114,11 @@ def run_experiemnt_with_dtlz2(
             stats[func.__name__]["hv_elapsed_time"].append(hv_elapsed_time)
             stats[func.__name__]["count_elapsed_time"].append(counter_elapsed_time)
             stats[func.__name__]["analyze_elapsed_time"].append(analyze_elapsed_time)
+            stats[func.__name__]["gd_elapsed_time"].append(gd_elapsed_time)
+            stats[func.__name__]["igd_elapsed_time"].append(igd_elapsed_time)
             stats[func.__name__]["hypervolume"].append(hv)
+            stats[func.__name__]["gd"].append(gdv)
+            stats[func.__name__]["igd"].append(igdv)
             
             for key, value in niche_metrics.items():
                 stats[func.__name__][key].append(value)
@@ -106,9 +129,13 @@ def run_experiemnt_with_dtlz2(
                 "hv_elapsed_time": hv_elapsed_time,
                 "count_elapsed_time": counter_elapsed_time,
                 "analyze_elapsed_time": analyze_elapsed_time,
+                "gd_elapsed_time": gd_elapsed_time,
+                "igd_elapsed_time": igd_elapsed_time,
                 "worst_point": worst_pt.tolist(),
                 "delta": delta,
                 "hypervolume": hv,
+                "gd": gdv,
+                "igd": igdv,
                 "points_per_niche": [float(v) for v in ptin],
                 "points_out_r": ptout,
                 "niche_metrics": niche_metrics,
@@ -144,6 +171,8 @@ def run_experiemnt_with_dtlz2(
             "mean_count_elapsed_time": float(np.mean(stats[name]["count_elapsed_time"])),
             "mean_analyze_elapsed_time": float(np.mean(stats[name]["analyze_elapsed_time"])),
             "mean_hypervolume": float(np.mean(stats[name]["hypervolume"])),
+            "mean_gd": float(np.mean(stats[name]["gd"])),
+            "mean_igd": float(np.mean(stats[name]["igd"])),
             "coverage": float(np.mean(stats[name]["coverage"])),
             "empty_ratio": float(np.mean(stats[name]["empty_ratio"])),
             "outside_rate": float(np.mean(stats[name]["outside_rate"])),

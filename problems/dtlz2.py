@@ -24,3 +24,13 @@ def dtlz2(x: Vector, M: int = 6) -> Vector:
             val *= np.sin(0.5 * np.pi * x[M - m - 1])
         f[m] = val
     return f  # todos minimização
+
+def dtlz2_true_front(n_points: int, n_obj: int) -> np.ndarray:
+    """
+    Gera amostras da fronteira verdadeira do DTLZ2.
+    Cada ponto está na hiperesfera unitária (norma 1, coordenadas >= 0).
+    """
+    X = np.random.randn(n_points, n_obj)
+    X = np.abs(X)  # primeiro quadrante
+    X = X / np.linalg.norm(X, axis=1, keepdims=True)
+    return X
