@@ -1,7 +1,7 @@
 from deap import base, creator, tools, algorithms
 import numpy as np
 from typing import Callable
-from .protocol_nsga3 import Vector, Bounds, ObjectiveVec
+from .protocol_nsga3 import Vector, Bounds, ObjVec
 
 def nsga3_deap_func(
     pop_size: int,
@@ -13,7 +13,7 @@ def nsga3_deap_func(
     initial_pop: list[Vector] = None,
     divisions: int = 10,
     ref_points: Vector = None
-) -> list[ObjectiveVec]:
+) -> list[ObjVec]:
     """
     Utiliza DEAP para resolver NSGA-III com os parâmetros especificados.
     Suporta tanto lista de funções escalares [f1, f2, ..., fM]

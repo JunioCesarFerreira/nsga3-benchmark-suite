@@ -43,6 +43,8 @@ Install dependencies from `requirements.txt`:
 pip install -r requirements.txt
 ```
 
+---
+
 ## 📊 Results
 
 We conducted a benchmark study comparing three implementations of the NSGA-III algorithm (`nsga3_func`, `nsga3_deap_func`, and `nsga3_pymoo_func`) across different problem sizes.

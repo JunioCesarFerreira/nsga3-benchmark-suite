@@ -8,7 +8,7 @@ from genetic_operators.crossover import sbx_crossover
 from genetic_operators.mutation import polynomial_mutation
 from problems.dtlz2 import dtlz2, dtlz2_true_front
 from analysis.coverege_per_niche import count_points_per_niche_dtlz2, analyze_niche_distribution
-from analysis.hypervolume import hypervolume
+from analysis.indicators import hypervolume
 from analysis.generational_distance import gd, igd
 from utils.generate_points import generate_reference_points
 

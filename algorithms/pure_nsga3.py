@@ -1,7 +1,7 @@
 import random
 import numpy as np
 from typing import Callable, Optional, Sequence, DefaultDict
-from .protocol_nsga3 import Vector, Bounds, ObjectiveVec
+from .protocol_nsga3 import Vector, Bounds, ObjVec
 
 def nsga3_func(
     pop_size: int,
@@ -13,7 +13,7 @@ def nsga3_func(
     initial_pop: Optional[list[Vector]] = None,
     divisions: int = 10,
     ref_points: Optional[Vector] = None
-) -> list[ObjectiveVec]:
+) -> list[ObjVec]:
     """
     NSGA-III generalizado para N dimensões.
 
@@ -36,13 +36,13 @@ def nsga3_func(
     def evaluate_population(
         population: Sequence[Vector],
         functions: list[Callable[[Vector], float]] | Callable[[Vector], Vector]
-    ) -> list[ObjectiveVec]:
+    ) -> list[ObjVec]:
         """
         Avalia a população em dois modos:
         - Lista de funções objetivos: [f1, f2, ..., fM], cada uma retornando float.
         - Única função multiobjetivo: f(x) -> Vector com M objetivos.
         """
-        objectives: list[ObjectiveVec] = []
+        objectives: list[ObjVec] = []
 
         for x in population:
             obj_vec = functions(x)
@@ -53,10 +53,10 @@ def nsga3_func(
 
         return objectives
 
-    def dominates(obj1: ObjectiveVec, obj2: ObjectiveVec) -> bool:
+    def dominates(obj1: ObjVec, obj2: ObjVec) -> bool:
         return all(x <= y for x, y in zip(obj1, obj2)) and any(x < y for x, y in zip(obj1, obj2))
 
-    def fast_nondominated_sort(objectives: Sequence[ObjectiveVec]) -> list[list[int]]:
+    def fast_nondominated_sort(objectives: Sequence[ObjVec]) -> list[list[int]]:
         population_size: int = len(objectives)
         S: list[list[int]] = [[] for _ in range(population_size)]
         n: list[int] = [0] * population_size
@@ -109,7 +109,7 @@ def nsga3_func(
 
     def environmental_selection(
         population: list[Vector],
-        objectives: list[ObjectiveVec],
+        objectives: list[ObjVec],
         fronts: list[list[int]],
         reference_points: Vector,
         pop_size: int
@@ -128,7 +128,7 @@ def nsga3_func(
 
     def niching_selection(
         front: list[int],
-        objectives: list[ObjectiveVec],
+        objectives: list[ObjVec],
         reference_points: Vector,
         N: int
     ) -> list[int]:
@@ -216,7 +216,7 @@ def nsga3_func(
         ref_points = np.asarray(ref_points, dtype=float)
 
     for gen in range(generations):
-        objectives: list[ObjectiveVec] = evaluate_population(population, functions)
+        objectives: list[ObjVec] = evaluate_population(population, functions)
         fronts: list[list[int]] = fast_nondominated_sort(objectives)
         individual_ranks: dict[int, int] = compute_individual_ranks(fronts)
         offspring_population: list[Vector] = []
@@ -228,13 +228,13 @@ def nsga3_func(
             offspring_population.append(child)
 
         combined_population: list[Vector] = population + offspring_population
-        combined_objectives: list[ObjectiveVec] = evaluate_population(combined_population, functions)
+        combined_objectives: list[ObjVec] = evaluate_population(combined_population, functions)
         combined_fronts: list[list[int]] = fast_nondominated_sort(combined_objectives)
         population = environmental_selection(combined_population, combined_objectives, combined_fronts, ref_points, pop_size)
 
     objectives = evaluate_population(population, functions)
     fronts = fast_nondominated_sort(objectives)
-    pareto_front: list[ObjectiveVec] = [objectives[i] for i in fronts[0]]
+    pareto_front: list[ObjVec] = [objectives[i] for i in fronts[0]]
     pareto_front.sort()
 
     return pareto_front

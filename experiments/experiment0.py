@@ -10,7 +10,7 @@ from algorithms.deap_nsga3 import nsga3_deap_func
 from algorithms.pymoo_nsga3 import nsga3_pymoo_func
 from problems.dtlz2 import dtlz2
 from analysis.coverege_per_niche import count_points_per_niche_dtlz2, analyze_niche_distribution
-from analysis.hypervolume import hypervolume
+from analysis.indicators import hypervolume
 from utils.generate_points import generate_reference_points
 
 # Parameters

@@ -1,7 +1,7 @@
 import numpy as np
 import pygmo as pg
 from typing import Callable
-from .protocol_nsga3 import Vector, Bounds, ObjectiveVec
+from .protocol_nsga3 import Vector, Bounds, ObjVec
 
 
 def nsga3_pygmo_func(
@@ -14,7 +14,7 @@ def nsga3_pygmo_func(
     initial_pop: list[Vector] | None = None,
     divisions: int = 10,   # não usado explicitamente (PyGMO gere internamente)
     ref_points: Vector | None = None
-) -> list[ObjectiveVec]:
+) -> list[ObjVec]:
     """
     Resolve NSGA-III usando PyGMO (pagmo).
     O crossover/mutação customizados não são usados aqui, 

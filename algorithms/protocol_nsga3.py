@@ -3,7 +3,7 @@ import numpy as np
 
 Vector = np.ndarray
 Bounds = list[tuple[float, float]]
-ObjectiveVec = tuple[float, ...]
+ObjVec = tuple[float, ...]
 
 Objective = Callable[[Vector], float]
 Crossover = Callable[[Vector, Vector], tuple[Vector, Vector]]

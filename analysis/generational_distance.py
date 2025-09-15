@@ -1,6 +1,7 @@
 import numpy as np
+from algorithms.protocol_nsga3 import ObjVec
 
-def gd(approx_front: np.ndarray, true_front: np.ndarray) -> float:
+def gd(approx_front: list[ObjVec], true_front: np.ndarray) -> float:
     """
     Generational Distance (GD).
     
@@ -14,7 +15,6 @@ def gd(approx_front: np.ndarray, true_front: np.ndarray) -> float:
     :return: float, valor do GD
     """
     approx_front = np.asarray(approx_front, dtype=float)
-    true_front = np.asarray(true_front, dtype=float)
 
     if approx_front.ndim != 2 or true_front.ndim != 2:
         raise ValueError("As entradas devem ser matrizes 2D (N x M e K x M).")
@@ -26,7 +26,7 @@ def gd(approx_front: np.ndarray, true_front: np.ndarray) -> float:
 
     return float(np.mean(distances))
 
-def igd(approx_front: np.ndarray, true_front: np.ndarray) -> float:
+def igd(approx_front: list[ObjVec], true_front: np.ndarray) -> float:
     """
     Calcula o IGD (Inverted Generational Distance).
 
@@ -35,7 +35,6 @@ def igd(approx_front: np.ndarray, true_front: np.ndarray) -> float:
     :return: valor do IGD
     """
     approx_front = np.asarray(approx_front, dtype=float)
-    true_front = np.asarray(true_front, dtype=float)
 
     if approx_front.size == 0 or true_front.size == 0:
         raise ValueError("As fronteiras não podem ser vazias")
