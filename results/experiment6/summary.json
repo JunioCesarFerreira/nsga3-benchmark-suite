@@ -1,0 +1,91 @@
+{
+  "parameters": {
+    "pop_size": 100,
+    "num_gen": 16,
+    "bounds": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "num_obj": 6,
+    "divisions": 10,
+    "radius_ref": 0.15,
+    "num_loops": 100
+  },
+  "results": {
+    "nsga3_func": {
+      "mean_elapsed_time": 1.1390223574638367,
+      "mean_hv_elapsed_time": 83.1436035823822,
+      "mean_count_elapsed_time": 0.008438918590545654,
+      "mean_analyze_elapsed_time": 0.027578611373901368,
+      "mean_hypervolume": 32.44466543326158,
+      "mean_gd": 0.20934661734806745,
+      "mean_igd": 0.5156330891193192,
+      "coverage": 0.02663336663336662,
+      "empty_ratio": 0.9733666333666332,
+      "outside_rate": 0.1192,
+      "entropy_norm": 0.543327547847263,
+      "gini": 2929.6241666666674,
+      "chi2": 3469.22375,
+      "avg_active": 1.1013076923076917,
+      "max_density": 2.01,
+      "std_density": 0.1840727768473803,
+      "CUS": -68.70019740259741
+    },
+    "nsga3_deap_func": {
+      "mean_elapsed_time": 0.5802944302558899,
+      "mean_hv_elapsed_time": 83.17883128643035,
+      "mean_count_elapsed_time": 0.008433630466461181,
+      "mean_analyze_elapsed_time": 0.027826123237609864,
+      "mean_hypervolume": 82.16512456868433,
+      "mean_gd": 0.1918289666386324,
+      "mean_igd": 0.3322514256830174,
+      "coverage": 0.01996336996336996,
+      "empty_ratio": 0.9800366300366298,
+      "outside_rate": 0.1506212121212121,
+      "entropy_norm": 0.4826857080245945,
+      "gini": 2958.4546787330323,
+      "chi2": 8127.645411764707,
+      "avg_active": 1.4166818181818177,
+      "max_density": 10.96,
+      "std_density": 0.27665768239000943,
+      "CUS": -50.15092041292042
+    },
+    "nsga3_pymoo_func": {
+      "mean_elapsed_time": 0.24056320428848266,
+      "mean_hv_elapsed_time": 490.2616591858864,
+      "mean_count_elapsed_time": 0.012008950710296631,
+      "mean_analyze_elapsed_time": 0.027776172161102296,
+      "mean_hypervolume": 1978.796272589919,
+      "mean_gd": 0.1951561406646539,
+      "mean_igd": 0.2687880424996064,
+      "coverage": 0.03463203463203464,
+      "empty_ratio": 0.9653679653679653,
+      "outside_rate": 0.25,
+      "entropy_norm": 0.5783158124526264,
+      "gini": 2902.703703703704,
+      "chi2": 3117.4444444444443,
+      "avg_active": 1.0384615384615383,
+      "max_density": 2.0,
+      "std_density": 0.19322170360809923,
+      "CUS": -75.36892736892737
+    }
+  }
+}
