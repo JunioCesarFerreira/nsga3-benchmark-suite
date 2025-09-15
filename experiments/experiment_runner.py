@@ -170,6 +170,8 @@ def run_experiemnt_with_dtlz2(
             "mean_hv_elapsed_time": float(np.mean(stats[name]["hv_elapsed_time"])),
             "mean_count_elapsed_time": float(np.mean(stats[name]["count_elapsed_time"])),
             "mean_analyze_elapsed_time": float(np.mean(stats[name]["analyze_elapsed_time"])),
+            "mean_gd_elapsed_time": float(np.mean(stats[name]["gd_elapsed_time"])),
+            "mean_igd_elapsed_time": float(np.mean(stats[name]["igd_elapsed_time"])),
             "mean_hypervolume": float(np.mean(stats[name]["hypervolume"])),
             "mean_gd": float(np.mean(stats[name]["gd"])),
             "mean_igd": float(np.mean(stats[name]["igd"])),
