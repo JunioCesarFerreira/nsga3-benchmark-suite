@@ -83,7 +83,32 @@ However, **further experiments are needed** to better understand the complexity 
 |      |      | nsga3_deap_func   | 261.854        | 0.5995      | 0.5765      | 0.579         | 3.91010     | 0.0003    | 0.000          |
 |      |      | nsga3_pymoo_func  | 30831.357      | 0.5217      | 0.4632      | 0.199         | 289.88638   | 0.0003    | 0.000          |
 
-[If you want to see the full results of the experiments.](./results/)
+[If you want to see the full results of the experiments.](./results_2025_09_14/)
+
+### 📈 Host Information
+
+* **Operating System**: Ubuntu 24.04.2 LTS (Noble Numbat)  
+* **Kernel**: 6.8.0 (generic)  
+* **Virtualization**: KVM (AMD-V enabled)  
+
+#### CPU
+* **Vendor**: AuthenticAMD  
+* **Model**: AMD EPYC-Milan Processor  
+* **Architecture**: x86_64  
+* **Cores/Threads**: 2 cores, 2 threads (1 thread per core, 2 sockets × 1 core each)  
+* **Base Frequency**: ~3.8 GHz (reported)  
+* **Caches**:  
+  * L1d: 64 KiB (2 × 32 KiB)  
+  * L1i: 64 KiB (2 × 32 KiB)  
+  * L2: 1 MiB (2 × 512 KiB)  
+  * L3: 64 MiB (2 × 32 MiB)  
+
+#### Memory
+* **Total RAM**: 3.4 GiB  
+* **Used**: 741 MiB  
+* **Available**: 2.6 GiB  
+* **Swap**: 0 B
+
 
 ---
 
