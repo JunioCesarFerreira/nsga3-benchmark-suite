@@ -1,0 +1,85 @@
+{
+  "parameters": {
+    "pop_size": 100,
+    "num_gen": 16,
+    "bounds": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "num_obj": 3,
+    "divisions": 10,
+    "radius_ref": 0.15,
+    "num_loops": 100
+  },
+  "results": {
+    "nsga3_func": {
+      "mean_elapsed_time": 0.6497362089157105,
+      "mean_hv_elapsed_time": 0.00015535831451416016,
+      "mean_count_elapsed_time": 0.0007635307312011719,
+      "mean_analyze_elapsed_time": 0.00015377044677734376,
+      "mean_gd_elapsed_time": 0.0020565223693847657,
+      "mean_igd_elapsed_time": 0.004907426834106446,
+      "mean_hypervolume": 0.7962269102453726,
+      "mean_gd": 0.047144397989229814,
+      "mean_igd": 0.07712606231351994,
+      "coverage": 0.7130303030303031,
+      "empty_ratio": 0.2869696969696971,
+      "outside_rate": 0.07919999999999999,
+      "entropy_norm": 0.871399038642993,
+      "gini": 34.05288695652173,
+      "chi2": 105.82759999999999,
+      "avg_active": 1.9567402649538344,
+      "max_density": 7.99,
+      "std_density": 1.4955578525824682,
+      "CUS": -21.69853939393939
+    },
+    "nsga3_deap_func": {
+      "mean_elapsed_time": 0.07777640581130982,
+      "mean_hv_elapsed_time": 0.00010625123977661132,
+      "mean_count_elapsed_time": 0.0007711696624755859,
+      "mean_analyze_elapsed_time": 0.00013324737548828125,
+      "mean_gd_elapsed_time": 0.002059173583984375,
+      "mean_igd_elapsed_time": 0.004940619468688965,
+      "mean_hypervolume": 0.6896307400064913,
+      "mean_gd": 0.02679954236788384,
+      "mean_igd": 0.08075017334599663,
+      "coverage": 0.6184848484848486,
+      "empty_ratio": 0.3815151515151514,
+      "outside_rate": 0.0,
+      "entropy_norm": 0.824423302585597,
+      "gini": 40.74642608695651,
+      "chi2": 163.86363478260876,
+      "avg_active": 2.4546341463414625,
+      "max_density": 9.0,
+      "std_density": 1.937554386459384,
+      "CUS": -24.55382727272727
+    },
+    "nsga3_pymoo_func": {
+      "mean_elapsed_time": 0.14031657934188843,
+      "mean_hv_elapsed_time": 9.91201400756836e-05,
+      "mean_count_elapsed_time": 0.0003960275650024414,
+      "mean_analyze_elapsed_time": 0.0001340055465698242,
+      "mean_gd_elapsed_time": 0.0010138344764709472,
+      "mean_igd_elapsed_time": 0.004278473854064942,
+      "mean_hypervolume": 0.780663776343223,
+      "mean_gd": 0.05721350212969356,
+      "mean_igd": 0.0933995947869332,
+      "coverage": 0.6515151515151514,
+      "empty_ratio": 0.3484848484848487,
+      "outside_rate": 0.04166666666666668,
+      "entropy_norm": 0.8922527331855616,
+      "gini": 25.60869565217392,
+      "chi2": 28.60869565217392,
+      "avg_active": 1.069767441860465,
+      "max_density": 2.0,
+      "std_density": 0.5496471862793046,
+      "CUS": -15.364898989898995
+    }
+  }
+}

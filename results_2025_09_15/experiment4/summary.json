@@ -1,0 +1,93 @@
+{
+  "parameters": {
+    "pop_size": 100,
+    "num_gen": 16,
+    "bounds": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "num_obj": 4,
+    "divisions": 10,
+    "radius_ref": 0.15,
+    "num_loops": 100
+  },
+  "results": {
+    "nsga3_func": {
+      "mean_elapsed_time": 0.7248982787132263,
+      "mean_hv_elapsed_time": 0.0002178049087524414,
+      "mean_count_elapsed_time": 0.0013579511642456054,
+      "mean_analyze_elapsed_time": 0.0003383994102478027,
+      "mean_gd_elapsed_time": 0.0021140027046203614,
+      "mean_igd_elapsed_time": 0.0050315260887146,
+      "mean_hypervolume": 0.5135074831199822,
+      "mean_gd": 0.0860312326666159,
+      "mean_igd": 0.2410985438804478,
+      "coverage": 0.24475524475524466,
+      "empty_ratio": 0.7552447552447553,
+      "outside_rate": 0.021399999999999995,
+      "entropy_norm": 0.731320891394758,
+      "gini": 231.51214285714275,
+      "chi2": 414.5177551020409,
+      "avg_active": 1.3980000000000001,
+      "max_density": 3.99,
+      "std_density": 0.7042023098952208,
+      "CUS": -55.21369930069928
+    },
+    "nsga3_deap_func": {
+      "mean_elapsed_time": 0.12908876657485963,
+      "mean_hv_elapsed_time": 0.00012564659118652344,
+      "mean_count_elapsed_time": 0.0008947420120239258,
+      "mean_analyze_elapsed_time": 0.0003539848327636719,
+      "mean_gd_elapsed_time": 0.0013799262046813965,
+      "mean_igd_elapsed_time": 0.004529950618743897,
+      "mean_hypervolume": 0.3980993076781148,
+      "mean_gd": 0.08846135033153506,
+      "mean_igd": 0.2698959119181828,
+      "coverage": 0.1087412587412587,
+      "empty_ratio": 0.891258741258741,
+      "outside_rate": 0.1722873975409836,
+      "entropy_norm": 0.5826809250853832,
+      "gini": 263.46731918239004,
+      "chi2": 597.1581289308175,
+      "avg_active": 1.7042879622344613,
+      "max_density": 4.97,
+      "std_density": 0.6215946045201932,
+      "CUS": -23.61690772598303
+    },
+    "nsga3_pymoo_func": {
+      "mean_elapsed_time": 0.1459985589981079,
+      "mean_hv_elapsed_time": 0.0002809953689575195,
+      "mean_count_elapsed_time": 0.0016019368171691895,
+      "mean_analyze_elapsed_time": 0.0003016090393066406,
+      "mean_gd_elapsed_time": 0.0025127100944519042,
+      "mean_igd_elapsed_time": 0.005334553718566895,
+      "mean_hypervolume": 1.1587993907121366,
+      "mean_gd": 0.11563448910217188,
+      "mean_igd": 0.15470804055923756,
+      "coverage": 0.33216783216783213,
+      "empty_ratio": 0.6678321678321679,
+      "outside_rate": 0.08403361344537816,
+      "entropy_norm": 0.7971177177881374,
+      "gini": 201.64220183486248,
+      "chi2": 255.71559633027525,
+      "avg_active": 1.1473684210526314,
+      "max_density": 3.0,
+      "std_density": 0.5837485627123017,
+      "CUS": -61.046306634541914
+    }
+  }
+}
