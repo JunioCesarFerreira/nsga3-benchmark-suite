@@ -2,4 +2,4 @@ numpy
 deap
 pymoo
 matplotlib
-pygmo
+#pygmo
