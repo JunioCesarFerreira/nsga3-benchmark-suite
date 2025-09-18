@@ -63,8 +63,8 @@ def run_experiemnt_with_dtlz2(
                 num_gen,
                 bounds,
                 lambda x : dtlz2(x, M=num_obj),
-                sbx_crossover,
-                polynomial_mutation,
+                lambda p1, p2 : sbx_crossover(p1, p2, bounds),
+                lambda ind, bds : polynomial_mutation(ind, bds),
                 divisions=divisions
             )
             elapsed_time = time.time() - start_time # ELAPSED
@@ -109,7 +109,7 @@ def run_experiemnt_with_dtlz2(
             }
             print(json.dumps(print_data, indent=2))
                 
-            # Acumula métricas
+            # Accumulates metrics
             stats[func.__name__]["elapsed_time"].append(elapsed_time)
             stats[func.__name__]["hv_elapsed_time"].append(hv_elapsed_time)
             stats[func.__name__]["count_elapsed_time"].append(counter_elapsed_time)
@@ -144,13 +144,13 @@ def run_experiemnt_with_dtlz2(
 
             file_path = output_dir / f"run_{exp_index:03d}_{func.__name__}.json"
 
-            # Salvar JSON
+            # save JSON
             with open(file_path, "w") as f:
                 json.dump(data, f, indent=2)
 
             print(f"[{func.__name__}] Saved {file_path} (time={elapsed_time:.3f}s)")
 
-    # --- Cálculo das médias finais ---
+    # --- final means calculate ---
     summary = {
         "parameters": {
             "pop_size": pop_size,
@@ -193,7 +193,7 @@ def run_experiemnt_with_dtlz2(
         for k, v in values.items():
             print(f"  {k}: {v:.6f}")
 
-    # Salvar resumo em JSON
+    # save summary json
     summary_file = output_dir / "summary.json"
     with open(summary_file, "w") as f:
         json.dump(summary, f, indent=2)

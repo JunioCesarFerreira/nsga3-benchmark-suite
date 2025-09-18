@@ -45,8 +45,8 @@ for func in impl:
         NUM_GEN,
         BOUNDS,
         lambda x : dtlz2(x, M=NUM_OBJ),
-        sbx_crossover,
-        polynomial_mutation,
+        lambda p1, p2 : sbx_crossover(p1, p2, BOUNDS),
+        lambda ind, bounds : polynomial_mutation(ind, bounds),
         divisions=DIVISIONS
     )
 
