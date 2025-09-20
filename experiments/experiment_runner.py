@@ -21,7 +21,12 @@ def run_experiemnt_with_dtlz2(
     radius_ref: float,
     implementations: list[NSGA3Callable],
     num_loops: int,
-    output_dir: Path
+    output_dir: Path,
+    pb_c: float = 0.9,
+    eta_c: float = 20.0,
+    pb_m: float = 0.1,
+    eta_m: float = 20.0,
+    pb_pg_m: float | None = None
     )->None:
     
     # Pontos de referência précalculados para uso nas comparações   
@@ -63,8 +68,8 @@ def run_experiemnt_with_dtlz2(
                 num_gen,
                 bounds,
                 lambda x : dtlz2(x, M=num_obj),
-                lambda p1, p2 : sbx_crossover(p1, p2, bounds),
-                lambda ind, bds : polynomial_mutation(ind, bds),
+                lambda p1, p2 : sbx_crossover(p1, p2, bounds, eta=eta_c, cxpb=pb_c),
+                lambda ind, bds : polynomial_mutation(ind, bds, eta=eta_m, mutation_rate=pb_m, per_gene_prob=pb_pg_m),
                 divisions=divisions
             )
             elapsed_time = time.time() - start_time # ELAPSED
