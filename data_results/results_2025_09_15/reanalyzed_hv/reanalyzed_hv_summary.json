@@ -1,0 +1,180 @@
+{
+  "parameters": {
+    "experiments": [
+      "experiment1",
+      "experiment2",
+      "experiment3",
+      "experiment4",
+      "experiment5",
+      "experiment6",
+      "experiment7"
+    ],
+    "reference_points": [
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    ]
+  },
+  "results": {
+    "experiment1": {
+      "nsga3_deap_func": {
+        "mean_hv": 24.26370239919066,
+        "std_hv": 0.009197953598557625,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 24.785017704753763,
+        "std_hv": 0.02338374405241155,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 24.66277938890354,
+        "std_hv": 1.0658141036401503e-14,
+        "num_runs": 100
+      }
+    },
+    "experiment2": {
+      "nsga3_deap_func": {
+        "mean_hv": 125.23931365464229,
+        "std_hv": 0.07207347888350092,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 131.9960126008295,
+        "std_hv": 0.2530793414579617,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 133.87841030182042,
+        "std_hv": 2.842170943040401e-14,
+        "num_runs": 100
+      }
+    },
+    "experiment3": {
+      "nsga3_deap_func": {
+        "mean_hv": 632.5817109990089,
+        "std_hv": 0.43714315963783895,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 639.559073795763,
+        "std_hv": 0.8620205631923414,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 663.0741247232244,
+        "std_hv": 1.1368683772161603e-13,
+        "num_runs": 100
+      }
+    },
+    "experiment4": {
+      "nsga3_deap_func": {
+        "mean_hv": 621.6860684947163,
+        "std_hv": 0.7989467590274287,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 624.9175497970184,
+        "std_hv": 3.163965258627339,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 667.191644711722,
+        "std_hv": 0.0,
+        "num_runs": 100
+      }
+    },
+    "experiment5": {
+      "nsga3_deap_func": {
+        "mean_hv": 3204.0823130596605,
+        "std_hv": 1.0626615384878964,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 3204.85599037693,
+        "std_hv": 4.649349119154609,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 3200.2621851558583,
+        "std_hv": 1.3642420526593924e-12,
+        "num_runs": 100
+      }
+    },
+    "experiment6": {
+      "nsga3_deap_func": {
+        "mean_hv": 15772.677091547079,
+        "std_hv": 1.2525090172576943,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 15981.654830096499,
+        "std_hv": 8.713475753326282,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 16262.372791052556,
+        "std_hv": 1.8189894035458565e-12,
+        "num_runs": 100
+      }
+    },
+    "experiment7": {
+      "nsga3_deap_func": {
+        "mean_hv": 15773.97103250036,
+        "std_hv": 76.26133476675321,
+        "num_runs": 100
+      },
+      "nsga3_func": {
+        "mean_hv": 16767.71405010135,
+        "std_hv": 66.91894104352068,
+        "num_runs": 100
+      },
+      "nsga3_pymoo_func": {
+        "mean_hv": 16614.321449441446,
+        "std_hv": 0.0,
+        "num_runs": 100
+      }
+    }
+  }
+}
